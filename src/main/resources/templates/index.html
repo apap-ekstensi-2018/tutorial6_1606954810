@@ -1,0 +1,15 @@
+<!doctype HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(content)">
+<title>Index</title>
+<link th:fragment="script" rel="stylesheet"
+	href="/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
+</head>
+<body>
+	<div th:replace="fragments/navbar :: navbar('home')"></div>
+	<center>
+		<h3>Welcome To Tutorial 05 APAP</h3>
+	</center>
+	<div th:replace="fragments/navbar :: footer"></div>
+</body>
+</html>

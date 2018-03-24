@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Update student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:replace="index :: script" />
+</head>
+
+<body>
+	<div th:replace="fragments/navbar :: navbar('viewall')"></div>
+	<h1 class="page-header">Problem Editor</h1>
+
+	<!--<form action="/student/update/submit" method="post">
+		<div>
+			<label for="npm">NPM</label> 
+			<input type="text" name="npm" readonly="true" th:value="${student.npm}" />
+		</div>
+		<div>
+			<label for="name">Name</label> 
+			<input type="text" name="name" th:value="${student.name}"/>
+		</div>
+		<div>
+			<label for="gpa">GPA</label> 
+			<input type="text" name="gpa" th:value="${student.gpa}"/>
+		</div>
+
+		<div>
+			<button type="submit" name="action" value="save">Save</button>
+		</div>
+	</form>-->
+
+	<form th:action="@{/student/update/submit}" th:object="${student}"
+		method="post">
+		<div>
+			<label for="npm">NPM</label> <input type="text" name="npm"
+				readonly="true" th:value="${student.npm}" th:field="*{npm}" />
+		</div>
+		<div>
+			<label for="name">Name</label> <input type="text" name="name"
+				th:value="${student.name}" th:field="*{name}" />
+		</div>
+		<div>
+			<label for="gpa">GPA</label> <input type="text" name="gpa"
+				th:value="${student.gpa}" th:field="*{gpa}" />
+		</div>
+
+		<div>
+			<button type="submit" name="action" value="save">Save</button>
+		</div>
+	</form>
+	<div th:replace="fragments/navbar :: footer"></div>
+</body>
+
+</html>
+

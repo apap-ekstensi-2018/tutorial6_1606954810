@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:replace="index :: script" />
+</head>
+<body>
+	<div th:fragment="navbar(selection)">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li th:class="${selection == 'home'} ? 'active' : null"
+						class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li th:class="${selection == 'viewall'} ? 'active' : null"
+						class="nav-item"><a class="nav-link" href="/student/viewall">Daftar
+							Mahasiswa</a></li>
+					<li th:class="${selection == 'add'} ? 'active' : null"
+						class="nav-item"><a class="nav-link" href="/student/add">Menambah
+							Mahasiswa</a></li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="text"
+						placeholder="Search" aria-label="Search" />
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
+	</div>
+	<div th:fragment="footer">
+		<hr />
+		<h4>Mata Kuliah APAP</h4>
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View All Students</title>
+<link th:replace="index :: script" />
+</head>
+<body>
+	<div th:replace="fragments/navbar :: navbar('viewall')"></div>
+	<h1>All Students</h1>
+
+	<!-- <div th:each="student, iterationStatus: ${students}" th:class="${iterationStatus.odd}? 'odd'">
+            <h3 th:text="'No. ' + ${iterationStatus.count}">No. 1</h3>
+	       	<h3 th:text="'NPM = ' + ${student.npm}">Student NPM</h3>
+	       	<h3 th:text="'Name = ' + ${student.name}">Student Name</h3>
+	       	<h3 th:text="'GPA = ' + ${student.gpa}">Student GPA</h3>
+	       	<h3 th:if="${student.gpa >= 3.49}">Cum Laude!</h3>
+	       	<h3 th:unless="${student.gpa >= 3.49}">Sangat Memuaskan!</h3>
+	       	<h3 th:text="${student.gpa >= 3.49 ? 'Cum Laude!' : 'Sangat Memuaskan!'}">Status GPA</h3>
+	       	<a th:href="'/student/delete/' + ${student.npm}">Delete Data</a>
+	       	<a th:href="'/student/update/' + ${student.npm}">Update Data</a>
+	       	<br/>
+	       	<hr/>
+       	</div> -->
+
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">No.</th>
+					<th scope="col">NPM</th>
+					<th scope="col">Name</th>
+					<th scope="col">GPA</th>
+					<th scope="col">Status</th>
+					<th scope="col">Options</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="student, iterationStat: ${students}">
+					<th scope="row" th:text="${iterationStat.count}">1</th>
+					<td th:text="${student.npm}">Student NPM</td>
+					<td th:text="${student.name}">Student Name</td>
+					<td th:text="${student.gpa}">Student GPA</td>
+					<td
+						th:text="${student.gpa>=3.49 ? 'Cum Laude!' : 'Sangat Memuaskan!'}">Status
+						GPA</td>
+					<td><a th:href="'/student/delete/' + ${student.npm}">Delete
+							Data</a> <a th:href="'/student/update/' + ${student.npm}">Update
+							Data</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div th:replace="fragments/navbar :: footer"></div>
+</body>
+</html>
